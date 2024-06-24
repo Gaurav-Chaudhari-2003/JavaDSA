@@ -5,6 +5,11 @@ public class Database {
     private static Database instance;
 
     public static synchronized Database getInstance(String name){
+        /*
+            xThe synchronized keyword in Java is a way to ensure that only one thread can access a shared resource at a time.
+        This is important because when multiple threads access and modify a shared resource simultaneously, it can lead
+        to inconsistent data and unexpected results, a situation commonly known as a race condition.
+        */
         if (null == instance){
             instance = new Database(name);
         }
@@ -25,7 +30,6 @@ public class Database {
 
     @Override
     public String toString() {
-        String text = "Database class\nName: " + this.name;
-        return text;
+        return "Database class\nName: " + this.name;
     }
 }
